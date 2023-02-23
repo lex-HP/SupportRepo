@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 # Define the GPIO pins for the motor
+print("Hello")
 ControlPin = [11, 13, 15, 16]
 
 # Set up the GPIO pins
@@ -27,3 +28,4 @@ for i in range(num_steps):
 
 # Clean up the GPIO pins
 GPIO.cleanup()
+print("Goodbye")

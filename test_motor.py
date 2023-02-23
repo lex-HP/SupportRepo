@@ -22,7 +22,7 @@ delay = 0.001
 for i in range(num_steps):
     for step in range(8):
         for pin in range(4):
-            GPIO.ouput(ControlPin[pin], step_sequence[step][pin])
+            GPIO.output(ControlPin[pin], step_sequence[step][pin])
         time.sleep(delay)
 
 # Clean up the GPIO pins

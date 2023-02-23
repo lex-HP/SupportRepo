@@ -10,9 +10,11 @@ GPIO.setmode(GPIO.BCM)
 #GPIO.setup(5, GPIO.OUT)  # SCL
 
 # Initialize the I2C bus
-i2c = busio.I2C(3, 5) #SCL, and SDA
+print(board.SCL)
+print(board.SDA)
+i2c = busio.I2C(board.SCL, board.SDA) #SCL, and SDA
 
-
+'''
 # Initialize the VL53L4CD sensor
 ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
 
@@ -36,3 +38,4 @@ while True:
         pass
     ToF.clear_interrupt()
     print("Distance: {} cm".format(ToF.distance))
+'''

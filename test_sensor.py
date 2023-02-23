@@ -8,11 +8,15 @@ import board
 GPIO.setmode(GPIO.BCM)
 #GPIO.setup(3, GPIO.OUT)  # SDA
 #GPIO.setup(5, GPIO.OUT)  # SCL
-
 # Initialize the I2C bus
-i2c = board.I2C() #SCL, and SDA
-
-
+i2c = busio.I2C(board.SCL, board.SDA)
+devices = i2c.scan()
+if len(devices) == 0:
+    print("No I2C devices found.")
+else:
+    print("Found {} I2C device(s):".format(len(devices)))
+    for device in devices:
+        print(hex(device))
 # Initialize the VL53L4CD sensor
 ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
 
@@ -30,6 +34,7 @@ print("Inter-Measurement: {}".format(ToF.inter_measurement))
 print("--------------------")
 
 ToF.start_ranging()
+
 
 while True:
     while not ToF.data_ready:

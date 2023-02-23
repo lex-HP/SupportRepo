@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 # Initialize the I2C bus
 print(board.SCL)
 print(board.SDA)
-i2c = busio.I2C(board.SCL, board.SDA) #SCL, and SDA
+i2c = busio.I2C(3, 5) #SCL, and SDA
 
 '''
 # Initialize the VL53L4CD sensor

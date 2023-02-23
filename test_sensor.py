@@ -17,6 +17,8 @@ else:
     print("Found {} I2C device(s):".format(len(devices)))
     for device in devices:
         print(hex(device))
+
+"""
 # Initialize the VL53L4CD sensor
 ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
 
@@ -41,3 +43,4 @@ while True:
         pass
     ToF.clear_interrupt()
     print("Distance: {} cm".format(ToF.distance))
+"""

@@ -3,7 +3,7 @@ import busio
 import time
 import adafruit_vl53l4cd
 import board
-
+GPIO.cleanup()
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
 Xshut = 28
@@ -39,3 +39,4 @@ while True:
     ToF.clear_interrupt()
     print("Distance: {} cm".format(ToF.distance))
 '''
+GPIO.cleanup()

@@ -15,7 +15,7 @@ import adafruit_vl53l4cd
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
-print(i2c == board.I2C(2,3))
+print(i2c)
 vl53 = adafruit_vl53l4cd.VL53L4CD(i2c)
 
 # OPTIONAL: can set non-default values

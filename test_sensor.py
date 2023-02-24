@@ -5,6 +5,7 @@ import time
 #import board
 
 # Set up the GPIO pins
+print("Hello")
 GPIO.setmode(GPIO.BOARD)
 
 SCL = 5
@@ -14,6 +15,8 @@ gpio = 40
 
 GPIO.setup(Xshut, GPIO.OUT)
 GPIO.output(Xshut, 0)
+
+time.sleep(5)
 '''
 # Initialize the I2C bus
 print(board.SCL)
@@ -46,3 +49,4 @@ while True:
     print("Distance: {} cm".format(ToF.distance))
 '''
 GPIO.cleanup()
+print("Goodbye")

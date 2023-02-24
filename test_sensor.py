@@ -1,52 +1,40 @@
-import RPi.GPIO as GPIO
-import busio
-import time
-import adafruit_vl53l4cd
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: Copyright (c) 2022 Carter Nelson for Adafruit Industries
+#
+# SPDX-License-Identifier: Unlicense
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+# SPDX-FileCopyrightText: Copyright (c) 2021 Carter Nelson for Adafruit Industries
+#
+# SPDX-License-Identifier: Unlicense
+
+# Simple demo of the VL53L4CD distance sensor.
+# Will print the sensed range/distance every second.
+
 import board
+import adafruit_vl53l4cd
 
-# Set up the GPIO pins
-print("Hello")
-GPIO.setmode(GPIO.BCM)
-'''
-SCL_pin = 5
-SDA_pin = 3
-Xshut = 38
-gpio = 40
+i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 
-GPIO.setup(Xshut, GPIO.OUT)
-GPIO.output(Xshut, 0)
-i2c = busio.I2C(SCL_pin, SDA_pin)
-time.sleep(5)
-
-# Initialize the I2C bus
-print(board.SCL)
-print(board.SDA)
-i2c = busio.I2C(3, 5) #SCL, and SDA
-'''
-# Initialize the VL53L4CD sensor
-i2c = board.I2C
-ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
+vl53 = adafruit_vl53l4cd.VL53L4CD(i2c)
 
 # OPTIONAL: can set non-default values
-ToF.inter_measurement = 0
-ToF.timing_budget = 200
+vl53.inter_measurement = 0
+vl53.timing_budget = 200
 
 print("VL53L4CD Simple Test.")
 print("--------------------")
-model_id, module_type = ToF.model_info
+model_id, module_type = vl53.model_info
 print("Model ID: 0x{:0X}".format(model_id))
 print("Module Type: 0x{:0X}".format(module_type))
-print("Timing Budget: {}".format(ToF.timing_budget))
-print("Inter-Measurement: {}".format(ToF.inter_measurement))
+print("Timing Budget: {}".format(vl53.timing_budget))
+print("Inter-Measurement: {}".format(vl53.inter_measurement))
 print("--------------------")
 
-ToF.start_ranging()
+vl53.start_ranging()
 
 while True:
-    while not ToF.data_ready:
+    while not vl53.data_ready:
         pass
-    ToF.clear_interrupt()
-    print("Distance: {} cm".format(ToF.distance))
-
-GPIO.cleanup()
-print("Goodbye")
+    vl53.clear_interrupt()
+    print("Distance: {} cm".format(vl53.distance))

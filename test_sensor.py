@@ -5,9 +5,9 @@ import adafruit_vl53l4cd
 import board
 
 # Set up the GPIO pins
-GPIO.setmode(GPIO.BCM)
-#GPIO.setup(3, GPIO.OUT)  # SDA
-#GPIO.setup(5, GPIO.OUT)  # SCL
+GPIO.setmode(GPIO.board)
+Xshut = 28
+whatever = 29
 
 # Initialize the I2C bus
 print(board.SCL)

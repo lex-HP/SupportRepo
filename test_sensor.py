@@ -6,10 +6,15 @@ import board
 
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
-'''
-Xshut = 28
-whatever = 29
 
+SCL = 5
+SDA = 3
+Xshut = 38
+gpio = 40
+
+GPIO.setup(Xshut, GPIO.OUT)
+GPIO.output(Xshut, 0)
+'''
 # Initialize the I2C bus
 print(board.SCL)
 print(board.SDA)

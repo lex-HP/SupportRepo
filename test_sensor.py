@@ -22,7 +22,7 @@ ToF.inter_measurement = inter_measurement
 ToF.timing_budget = timing_budget
 
 ToF.start_ranging()  # start measurments
-for i in range(10):
+for i in range(50):
     while not ToF.data_ready:
         pass
     ToF.clear_interrupt()

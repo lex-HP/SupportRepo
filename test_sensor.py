@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-#import busio
+import busio
 import time
 #import adafruit_vl53l4cd
 #import board
@@ -8,14 +8,15 @@ import time
 print("Hello")
 GPIO.setmode(GPIO.BOARD)
 
-SCL = 5
-SDA = 3
+SCL_pin = 5
+SDA_pin = 3
 Xshut = 38
 gpio = 40
 
 GPIO.setup(Xshut, GPIO.OUT)
 GPIO.output(Xshut, 0)
 
+i2c = busio.I2C(SCL_pin, SDA_pin)
 time.sleep(5)
 '''
 # Initialize the I2C bus

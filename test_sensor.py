@@ -6,6 +6,7 @@ import board
 
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
+'''
 Xshut = 28
 whatever = 29
 
@@ -13,7 +14,7 @@ whatever = 29
 print(board.SCL)
 print(board.SDA)
 i2c = busio.I2C(3, 5) #SCL, and SDA
-
+'''
 '''
 # Initialize the VL53L4CD sensor
 ToF = adafruit_vl53l4cd.VL53L4CD(i2c)

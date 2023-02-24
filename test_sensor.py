@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
-import busio
+#import busio
 import time
-import adafruit_vl53l4cd
-import board
+#import adafruit_vl53l4cd
+#import board
 
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)

@@ -1,13 +1,13 @@
 import RPi.GPIO as GPIO
 import busio
 import time
-#import adafruit_vl53l4cd
-#import board
+import adafruit_vl53l4cd
+import board
 
 # Set up the GPIO pins
 print("Hello")
-GPIO.setmode(GPIO.BOARD)
-
+GPIO.setmode(GPIO.BCM)
+'''
 SCL_pin = 5
 SDA_pin = 3
 Xshut = 38
@@ -15,17 +15,16 @@ gpio = 40
 
 GPIO.setup(Xshut, GPIO.OUT)
 GPIO.output(Xshut, 0)
-
 i2c = busio.I2C(SCL_pin, SDA_pin)
 time.sleep(5)
-'''
+
 # Initialize the I2C bus
 print(board.SCL)
 print(board.SDA)
 i2c = busio.I2C(3, 5) #SCL, and SDA
 '''
-'''
 # Initialize the VL53L4CD sensor
+i2c = board.I2C
 ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
 
 # OPTIONAL: can set non-default values
@@ -48,6 +47,6 @@ while True:
         pass
     ToF.clear_interrupt()
     print("Distance: {} cm".format(ToF.distance))
-'''
+
 GPIO.cleanup()
 print("Goodbye")

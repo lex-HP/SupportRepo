@@ -5,7 +5,7 @@ import adafruit_vl53l4cd
 import board
 
 # Set up the GPIO pins
-GPIO.setmode(GPIO.board)
+GPIO.setmode(GPIO.BOARD)
 Xshut = 28
 whatever = 29
 

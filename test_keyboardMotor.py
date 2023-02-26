@@ -10,10 +10,12 @@ ControlPin = [11, 13, 15, 16] # Set the GPIO pins for the motor
 num_steps = 512 # Set the number of step
 delay = 0.001 # Set delay between steps
 
+steps = 4
 step_sequence1 = [[1,0,0,1], [0,1,1,0], [1,1,0,0], [0,0,1,1]]
 step_sequence2 = [[0,0,1,1], [1,1,0,0], [0,1,1,0], [1,0,0,1]]
 
 """
+steps = 8
 step_sequence1 = [[1,0,0,0],[1,0,0,1], # Set the step sequence for the motor
                  [0,0,1,1],[0,0,1,0],
                  [0,1,1,0],[0,1,0,0],
@@ -33,7 +35,7 @@ for pin in ControlPin:
 def Motor_Control(direction, thread_flag):
     if direction == 0:
         for i in range(num_steps):
-            for step in range(8):
+            for step in range(steps):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], step_sequence1[step][pin])
                 time.sleep(delay)

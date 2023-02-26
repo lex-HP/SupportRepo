@@ -37,7 +37,7 @@ def Motor_Control(direction):
         for i in range(num_steps):
             for step in range(8):
                 for pin in range(4):
-                    GPIO.output(ControlPin[pin], step_sequence2[7-step][pin])
+                    GPIO.output(ControlPin[pin], step_sequence2[step][pin])
                 time.sleep(delay)
     else:
         pass
@@ -45,9 +45,9 @@ def Motor_Control(direction):
     return 0
 
 # Threading 
+lock = threading.Lock()
 motor_thread = threading.Thread(target=Motor_Control, args=(2,))
 motor_thread.start()
-print("Lock status:", lock.locked())
 
 
 # keyboard listen
@@ -55,16 +55,20 @@ delay_control = 0.1
 print('Press "a" to go clockwise, "d" to go counter-clockwise and space to quit\n')
 while True:
     if keyboard.is_pressed('space'):
+        motor_thread._stop()
+        lock.release
         print("Goodbye")
         break
     if keyboard.is_pressed("a"):
         motor_thread._stop()
+        lock.release()
         motor_thread = threading.Thread(target = Motor_Control, args =(0,))
         motor_thread.start()
         print('"L|"')
         time.sleep(delay_control)
     if keyboard.is_pressed("d"):
         motor_thread._stop()
+        lock.release
         motor_thread = threading.Thread(target = Motor_Control, args =(1,))
         motor_thread.start()
         print('"R|"')

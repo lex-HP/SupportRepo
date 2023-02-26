@@ -8,7 +8,7 @@ import adafruit_vl53l4cd
 
 # set constants
 min_distance = 5
-timing_budget = 200
+timing_budget = 20
 inter_measurement = 0
 
 # start script

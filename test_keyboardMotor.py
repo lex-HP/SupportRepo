@@ -41,7 +41,7 @@ def Motor_Control(direction, thread_flag):
                 time.sleep(delay)
     elif direction == 1:
         for i in range(num_steps):
-            for step in range(8):
+            for step in range(steps):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], step_sequence2[step][pin])
                 time.sleep(delay)

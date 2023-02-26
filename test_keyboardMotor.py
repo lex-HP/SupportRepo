@@ -52,19 +52,19 @@ while True:
         direction = "Left"
         motor_thread._stop()
         motor_thread = threading.Thread(target = Motor_Control, args =(direction,))
-        motor_thread._start()
+        motor_thread.start()
         print('"L|"')
         time.sleep(delay_control)
     if keyboard.is_pressed("d"):
         direction = "Right"
         motor_thread._stop()
         motor_thread = threading.Thread(target = Motor_Control, args =(direction,))
-        motor_thread._start()
+        motor_thread.start()
         print('"R|"')
         time.sleep(delay_control)
 
 
-
+GPIO.cleanup()
 '''
 
 
@@ -76,5 +76,5 @@ for i in range(num_steps):
         time.sleep(delay)
 
 # Clean up the GPIO pins 
-GPIO.cleanup()
+
 '''

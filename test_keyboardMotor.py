@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 import time
 import keyboard
 
+delay = 0.1
 print('Press "a" to go clockwise, "d" to go counter-clockwise and space to quit\n')
 while True:
     if keyboard.is_pressed('space'):
@@ -11,8 +12,10 @@ while True:
         break
     if keyboard.is_pressed("a"):
         print('"L|"')
+        time.sleep(delay)
     if keyboard.is_pressed("d"):
         print('"R|"')
+        time.sleep(delay)
 
 '''
 # Set constants

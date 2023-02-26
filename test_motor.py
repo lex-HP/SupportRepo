@@ -38,10 +38,10 @@ for pin in ControlPin:
 for i in range(num_steps):
     for step in range(8):
         for pin in range(1):
+            GPIO.output(ControlPin[0], step_sequence[step][0])
             GPIO.output(ControlPin[1], step_sequence[step][1])
             GPIO.output(ControlPin[2], step_sequence[step][2])
             GPIO.output(ControlPin[3], step_sequence[step][3])
-            GPIO.output(ControlPin[4], step_sequence[step][4])
         
         time.sleep(delay)
 

@@ -21,13 +21,13 @@ for pin in ControlPin:
     GPIO.output(pin,0)
 
 def Motor_Control(direction):
-    if direction == "Left":
+    if direction == 0:
         for i in range(num_steps):
             for step in range(8):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], step_sequence[step][pin])
                 time.sleep(delay)
-    elif direction == "Right":
+    elif direction == 1:
         for i in range(num_steps):
             for step in range(8):
                 for pin in range(4):
@@ -37,8 +37,7 @@ def Motor_Control(direction):
         pass
 
 # Threading 
-direction = "None"
-motor_thread = threading.Thread(target=Motor_Control, args=(direction,))
+motor_thread = threading.Thread(target=Motor_Control, args=(2,))
 motor_thread.start()
 
 # keyboard listen
@@ -49,16 +48,14 @@ while True:
         print("Goodbye")
         break
     if keyboard.is_pressed("a"):
-        direction = "Left"
         motor_thread._stop()
-        motor_thread = threading.Thread(target = Motor_Control, args =(direction,))
+        motor_thread = threading.Thread(target = Motor_Control, args =(0,))
         motor_thread.start()
         print('"L|"')
         time.sleep(delay_control)
     if keyboard.is_pressed("d"):
-        direction = "Right"
         motor_thread._stop()
-        motor_thread = threading.Thread(target = Motor_Control, args =(direction,))
+        motor_thread = threading.Thread(target = Motor_Control, args =(1,))
         motor_thread.start()
         print('"R|"')
         time.sleep(delay_control)

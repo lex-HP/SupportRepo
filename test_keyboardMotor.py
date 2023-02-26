@@ -10,7 +10,11 @@ ControlPin = [11, 13, 15, 16] # Set the GPIO pins for the motor
 num_steps = 512 # Set the number of step
 delay = 0.001 # Set delay between steps
 
-step_sequence1 = [[1,0,0,1],[0,0,0,1], # Set the step sequence for the motor
+step_sequence1 = [[1,0,0,1], [0,1,1,0], [1,1,0,0], [0,0,1,1]]
+step_sequence2 = [[0,0,1,1], [1,1,0,0], [0,1,1,0], [1,0,0,1]]
+
+"""
+step_sequence1 = [[1,0,0,0],[1,0,0,1], # Set the step sequence for the motor
                  [0,0,1,1],[0,0,1,0],
                  [0,1,1,0],[0,1,0,0],
                  [1,1,0,0],[1,0,0,0]] 
@@ -19,7 +23,7 @@ step_sequence2 = [[1,0,0,0],[1,1,0,0], # Set the step sequence for the motor
                  [0,1,0,0],[0,1,1,0],
                  [0,0,1,0],[0,0,1,1],
                  [0,0,0,1],[1,0,0,1]] 
-
+"""
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
 for pin in ControlPin:

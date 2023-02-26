@@ -15,10 +15,16 @@ step_sequence = [[1,0,0,0],[1,1,0,0], # Set the step sequence for the motor
                  [0,0,1,0],[0,0,1,1],
                  [0,0,0,1],[1,0,0,1]] 
 '''
+'''
 step_sequence = [[1,0,0,1],[0,0,0,1], # Set the step sequence for the motor
                  [0,0,1,1],[0,0,1,0],
                  [0,1,1,0],[0,1,0,0],
                  [1,1,0,0],[1,0,0,0]] 
+'''
+step_sequence = [[0,0,1,0],[1,0,1,0], # Set the step sequence for the motor
+                 [1,0,0,0],[1,0,0,1],
+                 [0,0,0,1],[0,1,0,1],
+                 [0,1,0,0],[0,1,1,0]] 
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
 for pin in ControlPin:

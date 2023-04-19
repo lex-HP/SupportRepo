@@ -12,7 +12,7 @@ import time
 print("Hello")
 
 # Set constants
-ControlPin = [11, 13, 15, 16] # Set the GPIO pins for the motor
+ControlPin = [17, 27, 22, 23] # Set the GPIO pins for the motor
 num_steps = 256 # Set the number of step
 delay = 0.001 # Set delay between steps
 

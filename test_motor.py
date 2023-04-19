@@ -15,19 +15,6 @@ step_sequence = [[1,0,0,0],[1,1,0,0], # Counter-Clockwise
                  [0,0,1,0],[0,0,1,1],
                  [0,0,0,1],[1,0,0,1]] 
 
-''' 
-step_sequence = [[0,1,1,1],[0,0,1,1], # Clockwise
-                 [1,0,1,1],[1,0,0,1],
-                 [1,1,0,1],[1,1,0,0],
-                 [1,1,1,0],[0,1,1,0]] 
-
-
-''' '''
-step_sequence = [[1,0,0,1],[0,0,0,1], # Clockwise
-                 [0,0,1,1],[0,0,1,0],
-                 [0,1,1,0],[0,1,0,0],
-                 [1,1,0,0],[1,0,0,0]]
-'''
 # Set up the GPIO pins
 GPIO.setmode(GPIO.BOARD)
 for pin in ControlPin:

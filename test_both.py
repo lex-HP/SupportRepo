@@ -22,7 +22,7 @@ step_sequence = [[1,0,0,0],[1,1,0,0], # Counter-Clockwise
                  [0,0,0,1],[1,0,0,1]] 
 
 # Set up the GPIO pins
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 for pin in ControlPin:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin,0)

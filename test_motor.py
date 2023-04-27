@@ -8,7 +8,7 @@ def run_motor():
     # Set constants
     ControlPin = [11, 13, 15, 16] # Set the GPIO pins for the motor
     num_steps = 1024 # Set the number of step
-    delay = 0.0005 # Set delay between steps
+    delay = 0.001 # Set delay between steps
     step_sequence = [[1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
                  [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1],
                  [1,0,0,0],[1,0,1,0],[0,0,1,0],[0,1,1,0],

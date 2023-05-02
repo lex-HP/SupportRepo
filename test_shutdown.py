@@ -15,7 +15,7 @@ oldButtonState1 = True
 
 while True:
     #grab the current button state
-    buttonState1 = GPIO.input(5)
+    buttonState1 = GPIO.input(27)
 
     # check to see if button has been pushed
     if buttonState1 != oldButtonState1 and buttonState1 == False:

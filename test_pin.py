@@ -4,7 +4,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 GPIO_pin = int(input("Give physical pin number: "))
 
-GPIO.setup(pin, GPIO.OUT)
+GPIO.setup(GPIO_pin, GPIO.OUT)
 start_time = time.time()
 
 while (time.time() - start_time) < 5:

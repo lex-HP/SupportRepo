@@ -8,9 +8,9 @@ GPIO.setup(GPIO_pin, GPIO.OUT)
 start_time = time.time()
 
 while (time.time() - start_time) < 5:
-    GPIO.output(pin, GPIO.HIGH)
+    GPIO.output(GPIO_pin, GPIO.HIGH)
     time.sleep(0.5)
-    GPIO.output(pin, GPIO.LOW)
+    GPIO.output(GPIO_pin, GPIO.LOW)
 
 # clean up GPIO
 GPIO.cleanup()

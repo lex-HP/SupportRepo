@@ -6,7 +6,7 @@ import subprocess
 # we will use the pin numbering to match the pins on the Pi, instead of the 
 # GPIO pin outs (makes it easier to keep track of things)
 
-GPIO.setmode(GPIO.BOARD)  
+GPIO.setmode(GPIO.BCM)  
 
 # use the same pin that is used for the reset button (one button to rule them all!)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)

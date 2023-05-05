@@ -6,7 +6,6 @@
 import board
 import adafruit_vl53l4cd
 import busio
-i2c = busio.I2C(board.SCL_1, board.SDA_1)  # use secondary I2C bus
 
 
 def run_sensor():
@@ -21,7 +20,7 @@ def run_sensor():
     flag = 0
 
     #i2c = board.I2C()  # uses board.SCL and board.SDA
-    i2c = busio.I2C(board.SCL_1, board.SDA_1)  # use secondary I2C bus
+    i2c = busio.I2C(board.SCL_0, board.SDA_0)  # use secondary I2C bus
 
     ToF = adafruit_vl53l4cd.VL53L4CD(i2c)
     ToF.inter_measurement = inter_measurement

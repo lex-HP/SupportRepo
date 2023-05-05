@@ -36,4 +36,4 @@ for i in range(num_steps):
 
 # Clean up the GPIO pins 
 GPIO.cleanup()
-print("Goodbye")
+print("Goodbye!")

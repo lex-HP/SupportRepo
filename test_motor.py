@@ -8,7 +8,7 @@ print("Hello")
 # Set constants
 ControlPin = [18, 27, 22, 23] # Set the GPIO pins for the motor
 num_steps = 512 # Set the number of step
-delay = 0.0015 # Set delay between steps
+delay = 0.001 # Set delay between steps
 
 step_sequence = [[1,0,0,0],[1,1,0,0], 
                  [0,1,0,0],[0,1,1,0],
